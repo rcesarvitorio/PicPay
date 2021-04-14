@@ -1,0 +1,67 @@
+{
+  "name": "picpay-cypress-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "unix:clean-all": "rm -rf ./node_modules && rm -rf ./package-lock.json && npm run unix:clean-reports",
+    "unix:clean-reports": "rm -rf cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+    "unix:simple-build": "npm run unix:clean-all && npm i",
+    "unix:pre-test": "npm run unix:simple-build",
+    "win:clean-all": "npm run clean-node && npm run win:clean-reports",
+    "clean-node": "npm i remove-node-modules && remove-node-modules",
+    "win:clean-reports": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
+    "win:simple-build": "npm run win:clean-all && npm i",
+    "win:pre-test": "npm run win:simple-build",
+    "cy:run": "cypress run --spec cypress/integration/*.spec.js",
+    "cy:open": "cypress open",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json >cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "post-test": "npm run combine-reports && npm run generate-report",
+    "lint:fix": "standard --fix"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "require",
+      "request",
+      "expect",
+      "httpStatus",
+      "faker",
+      "cy",
+      "Cypress",
+      "before",
+      "beforeEach"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcesarvitorio/picpay.git"
+  },
+  "keywords": [
+    "supertest",
+    "testing"
+  ],
+  "dependencies": {
+    "cypress": "^6.1.0",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1"
+  },
+  "devDependencies": {
+    "@bahmutov/cy-api": "^1.4.3",
+    "cypress-multi-reporters": "^1.4.0",
+    "faker": "^5.4.0",
+    "http-status-codes": "^1.4.0",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0",
+    "remove-node-modules": "^1.7.6",
+    "standard": "^14.3.4"
+  },
+  "author": "Roberto Cesar Vitorio",
+  "license": "MIT",
+  "homepage": "https://github.com/rcesarvitorio/picpay#readme",
+  "bugs": {
+    "url": "https://github.com/rcesarvitorio/picpay/issues"
+  }
+}
