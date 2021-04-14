@@ -19,3 +19,43 @@ const userFaker = {
     status: status
   }
 }
+
+describe('Testes de API para o Desafio Pic-Pay', () => {
+    it('/POST - Criar usuário válido com sucesso', () => {
+
+    })
+
+    it('/POST - Criar usuário já existente', () => {
+
+    })
+
+    it('/POST - Criar usuário sem nome', () => {
+
+    })
+
+    it('/GET - Listar todos os usuários com sucesso', () => {
+
+    })
+
+    it('/GET - Listar um usuário válido por id', () => {
+
+    })
+
+    it('/GET - Listar um usuário válido por email', () => {
+
+    })
+
+    it('/GET - Listar um usuário não existente', () => {
+
+    })
+
+    it('/PUT - Alterar o nome de um usuário existente com sucesso', () => {
+
+    })
+
+    it('/DELETE - Deletar um usuário existente com sucesso', () => {
+
+    })
+
+
+})
