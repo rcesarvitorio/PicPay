@@ -10,3 +10,15 @@ Cypress.Commands.add('createUser', (params) => {
     body: params
   })
 })
+
+Cypress.Commands.add('consultUser', (_id = '', email = '') => {
+  cy.request({
+    method: 'GET',
+    url: '/users',
+    qs: {
+      id: _id,
+      email: email
+    },
+    headers: data.HEADERS
+  })
+})

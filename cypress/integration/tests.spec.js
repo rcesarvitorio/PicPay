@@ -53,18 +53,34 @@ describe('Testes de API para o Desafio Pic-Pay', () => {
     })
 
     it('/GET - Listar todos os usuários com sucesso', () => {
+        cy.consultUser('').then((response) => {
+            expect(response.status).to.eq(httpStatus.OK)
+          })
 
     })
 
     it('/GET - Listar um usuário válido por id', () => {
+        cy.consultUser(_id, null).then((response) => {
+            expect(response.status).to.eq(httpStatus.OK)
+            expect(response.body.data[0].name).to.deep.eq(userFaker.BODY.name)
+            expect(response.body.data[0].email).to.deep.eq(userFaker.BODY.email)
+          })
 
     })
 
     it('/GET - Listar um usuário válido por email', () => {
-
+        cy.consultUser(null, userFaker.BODY.email).then((response) => {
+            expect(response.status).to.eq(httpStatus.OK)
+            expect(response.body.data[0].name).to.deep.eq(userFaker.BODY.name)
+            expect(response.body.data[0].email).to.deep.eq(userFaker.BODY.email)
+          })
     })
 
     it('/GET - Listar um usuário não existente', () => {
+        cy.consultUser(null, 'picpay@email_invalido.com').then((response) => {
+            expect(response.status).to.eq(httpStatus.OK)
+            expect(response.body.meta.pagination.total).to.eq(0)
+          })
 
     })
 
