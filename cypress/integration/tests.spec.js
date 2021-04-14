@@ -4,7 +4,7 @@ import faker from 'faker'
 import validUser from '../fixtures/validUser'
 import invalidUser from '../fixtures/invalidUser'
 
-
+const httpStatus = require('http-status-codes')
 
 const typeGnd = ['Male', 'Female']
 const typeStt = ['Active', 'Inactive']
