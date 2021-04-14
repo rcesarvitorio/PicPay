@@ -22,3 +22,22 @@ Cypress.Commands.add('consultUser', (_id = '', email = '') => {
     headers: data.HEADERS
   })
 })
+
+Cypress.Commands.add('modifyUser', (params, name, nameChange) => {
+  cy.request({
+    method: 'PUT',
+    url: `/users/${params}`,
+    headers: data.HEADERS,
+    body: {
+      name: `${name} ${nameChange}`
+    }
+  })
+})
+
+Cypress.Commands.add('deleteUser', (params) => {
+  cy.request({
+    method: 'DELETE',
+    url: `/users/${params}`,
+    headers: data.HEADERS
+  })
+})

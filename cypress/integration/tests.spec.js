@@ -85,10 +85,21 @@ describe('Testes de API para o Desafio Pic-Pay', () => {
     })
 
     it('/PUT - Alterar o nome de um usuário existente com sucesso', () => {
+        cy.modifyUser(_id, userFaker.BODY.name, 'Changed').then((response) => {
+            expect(response.status).to.eq(httpStatus.OK)
+            expect(response.body.code).to.eq(httpStatus.OK)
+            expect(response.body.data.name).to.eq(`${userFaker.BODY.name} Changed`)
+          })
 
     })
 
     it('/DELETE - Deletar um usuário existente com sucesso', () => {
+        cy.deleteUser(_id).then((response) => {
+            console.log(_id)
+            expect(response.status).to.eq(httpStatus.OK)
+            expect(response.body.code).to.eq(httpStatus.NO_CONTENT)
+            expect(response.body.data).to.eq(null)
+          })
 
     })
 
