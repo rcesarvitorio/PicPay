@@ -1,0 +1,30 @@
+name: API TESTS CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10]
+        
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install dependencies
+      run: npm run unix:pre-test
+    - name: standard lint
+      run: npm run lint:fix
+    - run: npm run unix:cy:run
+    
