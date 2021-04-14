@@ -22,7 +22,7 @@ const userFaker = {
 
 describe('Testes de API para o Desafio Pic-Pay', () => {
     let _id
-    it('/POST - Criar usuário válido com sucesso', () => {
+    before('/POST - Criar usuário válido com sucesso', () => {
         cy.createUser(userFaker.BODY).then((response) => {
             _id = response.body.data.id
             expect(response.status).to.eq(httpStatus.OK)
