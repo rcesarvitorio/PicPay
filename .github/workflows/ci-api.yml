@@ -1,32 +1,30 @@
-name: API TESTS CI
+name: API TESTS
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-18.04
 
     strategy:
       matrix:
-        node-version: [10]
-        
+        node: [10]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: install dependencies
-      run: npm run unix:pre-test
-    - name: standard lint
-      run: npm run lint:fix
-    - run: npm run cy:run
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: node v${{ matrix.node }} setup
+        uses: actions/setup-node@v2.1.4
+      - name: install dependencies
+        run: npm run unix:pre-test
+      - name: standard lint
+        run: npm run lint:fix
+
   integrations:
     runs-on: ubuntu-18.04
 
@@ -48,4 +46,3 @@ jobs:
         env:
           APP_URL: "https://gorest.co.in/public-api"
           CI: true
-    
