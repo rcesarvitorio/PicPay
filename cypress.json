@@ -1,6 +1,7 @@
 {
     "baseUrl": "https://gorest.co.in/public-api",
     "reporter": "cypress-multi-reporters",
+    "video": false,
     "reporterOptions": {
       "reporterEnabled": "mochawesome",
       "mochawesomeReporterOptions": {
