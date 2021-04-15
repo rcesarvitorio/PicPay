@@ -27,4 +27,25 @@ jobs:
     - name: standard lint
       run: npm run lint:fix
     - run: npm run cy:run
+  integrations:
+    runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        node: [10]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: node v${{ matrix.node }} setup
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: install dependencies
+        run: npm run unix:pre-test
+      - name: integration tests
+        run: npm run cy:run
+        env:
+          APP_URL: "https://gorest.co.in/public-api"
+          CI: true
     
