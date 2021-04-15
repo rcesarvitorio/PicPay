@@ -1,7 +1,7 @@
 ## DESAFIO PICPAY
 -----------------------
 
-[![API TESTS](https://github.com/rcesarvitorio/PicPay/actions/workflows/ci-api.yml/badge.svg?branch=main)](https://github.com/rcesarvitorio/PicPay/actions/workflows/ci-api.yml)
+[![API TESTS](https://github.com/rcesarvitorio/PicPay/actions/workflows/ci-api.js.yml/badge.svg?branch=main)](https://github.com/rcesarvitorio/PicPay/actions/workflows/ci-api.js.yml)
 [![CODE QUALITY](https://www.code-inspector.com/project/21246/score/svg)](https://www.code-inspector.com/project/21246/score/svg)
 
 Projeto de realização ao desafio proposto pela empresa PicPay.
