@@ -1,3 +1,12 @@
+## DESAFIO PICPAY
+-----------------------
+
+[![API TESTS](https://github.com/rcesarvitorio/Picpay/actions/workflows/ci-api.yml/badge.svg?branch=main)](https://github.com/rcesarvitorio/Picpay/actions/workflows/ci-api.yml)
+[![CODE QUALITY](https://www.code-inspector.com/project/21246/score/svg)](https://www.code-inspector.com/project/21246/score/svg)
+
+Projeto de realização ao desafio proposto pela empresa PicPay.
+
+-----------------------
 # PicPay
 
 ### Pré requisitos
@@ -30,18 +39,12 @@
 
 - Executar os seguintes comandos no terminal:
 
-> em sistemas unix:
+> em qualquer sistema:
 
-`npm run unix:cy:run`
+`npm run cy:run`
 
-`npm run unix:cy:open`
+`npm run cy:open`
 
-
-> em sistemas windows:
-
-`npm run win:cy:run`
-
-`npm run win:cy:open`
 
 -----------------------
 
